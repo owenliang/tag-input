@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".tag-input").bind("keyup", function (event) {
+                if (event.keyCode == 13) {
+                    var tag = $(this).val()
+                    if (tag) {
+                        var tagBox = $('<div class="tag-box"></div>')
+                        tagBox.text(tag)
+                        $(this).val("")
+                        $(this).before(tagBox)
+                    }
+                }
+            })
+        })
+    </script>
+    <style>
+        .tag-input-container {
+            border: 1px solid rgba(0,0,0,0.22);
+            display: inline-block;
+            min-width: 100px;
+        }
+        .tag-input-container:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .tag-input-container > * {
+            display: block;
+            float:left;
+            margin: 5px 5px;
+            font-size: 14px;
+        }
+        .tag-box {
+            border: 1px solid rgba(0,0,0,0.11);
+            height: 14px;
+            line-height: 14px;
+            border-radius: 5px;
+            padding: 5px 5px;
+        }
+        .tag-input {
+            outline: none;
+            height: 25px;
+            line-height: 25px;
+            border: none;
+            width: 42px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tag-input-container">
+        <input type="text" class="tag-input">
+    </div>
+</body>
+</html>
